@@ -10,10 +10,10 @@ const signIn = (details) => {
   });
 };
 
-const getProfilePic = (user) => {
+const getProfileInfo = (user) => {
   return myAPI.get(`/users/${user}`).then(({ data }) => {
-    return data.user.avatar_url;
+    return data.user;
   });
 };
 
-export { signIn, getProfilePic };
+export { signIn, getProfileInfo };

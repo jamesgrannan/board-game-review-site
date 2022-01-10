@@ -1,8 +1,10 @@
-import Home from "./components/Home";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
 import Login from "./components/Login";
 import Games from "./components/Games";
+import Review from "./components/Review";
+import Username from "./components/Username";
 import { useState } from "react";
 
 function App() {
@@ -14,6 +16,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/games" element={<Games user={user} />} />
+          <Route path="/review" element={<Review />} />
+          <Route path="/users/:username" element={<Username user={user} />} />
         </Routes>
       </div>
     </BrowserRouter>
