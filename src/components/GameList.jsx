@@ -7,7 +7,6 @@ const GameList = () => {
 
   useEffect(() => {
     getReviews().then((res) => {
-      console.log(res);
       setGames(res);
     });
   }, []);

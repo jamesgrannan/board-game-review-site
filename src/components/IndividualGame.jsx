@@ -5,6 +5,7 @@ import Nav from "./Nav";
 import GameCard from "./GameCard";
 import ThisReview from "./ThisReview";
 import WriteComment from "./WriteComment";
+import CommentList from "./CommentList";
 
 const IndividualGame = () => {
   const params = useParams();
@@ -24,6 +25,7 @@ const IndividualGame = () => {
       <p>Designer: {reviewPage.designer}</p>
       <ThisReview game={reviewPage} />
       <WriteComment id={params.review_id} />
+      <CommentList id={params.review_id} />
     </div>
   );
 };

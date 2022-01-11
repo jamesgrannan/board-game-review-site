@@ -66,6 +66,12 @@ const postComment = (comment, currentUser, review_id) => {
     .catch((err) => console.dir(err));
 };
 
+const getComments = (review_id) => {
+  return myAPI
+    .get(`/reviews/${review_id}/comments`)
+    .then(({ data }) => data.comments);
+};
+
 export {
   signIn,
   getProfileInfo,
@@ -76,4 +82,5 @@ export {
   getAReview,
   patchReview,
   postComment,
+  getComments,
 };
