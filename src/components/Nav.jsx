@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getProfileInfo } from "../utils";
 import { Link } from "react-router-dom";
+import { userContext } from "../contexts/user";
 
-const Nav = ({ user }) => {
+const Nav = () => {
+  const { user } = useContext(userContext);
   const [profilePic, setProfilePic] = useState("");
   useEffect(() => {
     getProfileInfo(user).then(({ avatar_url }) => {

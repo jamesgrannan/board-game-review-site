@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { userContext } from "../contexts/user";
 import { getProfileInfo } from "../utils";
 import Nav from "./Nav";
 
-const Username = ({ user }) => {
+const Username = () => {
+  const { user } = useContext(userContext);
   const params = useParams();
   const [userPage, setUserPage] = useState({});
 

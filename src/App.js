@@ -5,22 +5,25 @@ import Login from "./components/Login";
 import Games from "./components/Games";
 import Review from "./components/Review";
 import Username from "./components/Username";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { userContext } from "./contexts/user";
 
 function App() {
   const [user, setUser] = useState("jessjelly");
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login setUser={setUser} />} />
-          <Route path="/games" element={<Games user={user} />} />
-          <Route path="/review" element={<Review />} />
-          <Route path="/users/:username" element={<Username user={user} />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <userContext.Provider value={{ user, setUser }}>
+      <BrowserRouter>
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/games" element={<Games />} />
+            <Route path="/review" element={<Review />} />
+            <Route path="/users/:username" element={<Username />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </userContext.Provider>
   );
 }
 

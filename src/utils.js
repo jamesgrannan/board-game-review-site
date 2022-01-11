@@ -16,4 +16,39 @@ const getProfileInfo = (user) => {
   });
 };
 
-export { signIn, getProfileInfo };
+const postReview = (review, currentUser) => {
+  return myAPI
+    .post(`/reviews`, { ...review, owner: currentUser })
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((err) => console.dir(err));
+};
+
+const getCategories = () => {
+  return myAPI.get("categories").then(({ data }) => data.categories);
+};
+
+const postCategory = (category) => {
+  const req = { ...category };
+  req.slug = req.slug.toLowerCase();
+  return myAPI.post("categories", req).then(({ data }) => data.category);
+};
+
+const getReviews = (query) => {
+  let path = "reviews";
+  if (query) {
+    path += query;
+  }
+
+  return myAPI.get(path).then(({ data }) => data.reviews);
+};
+
+export {
+  signIn,
+  getProfileInfo,
+  postReview,
+  getCategories,
+  postCategory,
+  getReviews,
+};

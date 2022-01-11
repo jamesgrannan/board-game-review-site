@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { userContext } from "../contexts/user";
 import { signIn } from "../utils";
 
-const Login = ({ setUser }) => {
+const Login = () => {
+  const { setUser } = useContext(userContext);
   const [logInUser, setLogInUser] = useState("");
   const [logInError, setLogInError] = useState("");
   const navigate = useNavigate();
