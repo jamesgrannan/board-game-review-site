@@ -6,7 +6,6 @@ const Trending = () => {
 
   useEffect(() => {
     getReviews("?sort_by=votes&limit=6").then((res) => {
-      console.log(res);
       setTrends(res);
     });
   }, []);

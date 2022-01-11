@@ -44,6 +44,28 @@ const getReviews = (query) => {
   return myAPI.get(path).then(({ data }) => data.reviews);
 };
 
+const getAReview = (id) => {
+  return myAPI.get(`/reviews/${id}`).then(({ data }) => data.review);
+};
+
+const patchReview = (votes, id) => {
+  return myAPI
+    .patch(`/reviews/${id}`, { inc_votes: votes })
+    .then(({ data }) => data.review);
+};
+
+const postComment = (comment, currentUser, review_id) => {
+  return myAPI
+    .post(`/reviews/${review_id}/comments`, {
+      username: currentUser,
+      body: comment,
+    })
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((err) => console.dir(err));
+};
+
 export {
   signIn,
   getProfileInfo,
@@ -51,4 +73,7 @@ export {
   getCategories,
   postCategory,
   getReviews,
+  getAReview,
+  patchReview,
+  postComment,
 };

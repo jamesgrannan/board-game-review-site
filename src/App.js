@@ -7,6 +7,7 @@ import Review from "./components/Review";
 import Username from "./components/Username";
 import { useContext, useState } from "react";
 import { userContext } from "./contexts/user";
+import IndividualGame from "./components/IndividualGame";
 
 function App() {
   const [user, setUser] = useState("jessjelly");
@@ -20,6 +21,7 @@ function App() {
             <Route path="/games" element={<Games />} />
             <Route path="/review" element={<Review />} />
             <Route path="/users/:username" element={<Username />} />
+            <Route path="/reviews/:review_id" element={<IndividualGame />} />
           </Routes>
         </div>
       </BrowserRouter>
