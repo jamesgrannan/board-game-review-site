@@ -3,15 +3,15 @@ import { getComments } from "../utils";
 import CommentCard from "./CommentCard";
 import styles from "../css-modules/main.module.css";
 
-const CommentList = ({ id }) => {
+const CommentList = ({ id, setCommented, commented }) => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
     getComments(id).then((res) => {
       setComments(res);
-      console.log(comments);
+      setCommented(false);
     });
-  }, []);
+  }, [commented]);
 
   return (
     <div>

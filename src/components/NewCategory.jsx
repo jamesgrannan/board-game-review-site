@@ -1,7 +1,12 @@
 import { getCategories, postCategory } from "../utils";
 import styles from "../css-modules/review.module.css";
 
-const NewCategory = ({ newCategory, setNewCategory, setCategories }) => {
+const NewCategory = ({
+  newCategory,
+  setNewCategory,
+  setCategories,
+  setInputFields,
+}) => {
   const handleChange = (event) => {
     return setNewCategory((currentCategory) => {
       currentCategory[event.target.name] = event.target.value;
@@ -11,14 +16,17 @@ const NewCategory = ({ newCategory, setNewCategory, setCategories }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     return postCategory(newCategory)
-      .then((response) => {
+      .then(() => {
         return getCategories().then((data) => {
           setCategories(data);
+          return setInputFields((currentInput) => {
+            currentInput.category = newCategory.slug;
+            return { ...currentInput };
+          });
         });
       })
-      .catch((err) => console.log(err.response.data.msg));
+      .catch((err) => console.log(err));
   };
-
   return (
     <div>
       <h3>Category not there? Create your own</h3>

@@ -10,13 +10,13 @@ import CommentList from "./CommentList";
 const IndividualGame = () => {
   const params = useParams();
   const [reviewPage, setReviewPage] = useState({});
-
+  const [commented, setCommented] = useState(false);
   useEffect(() => {
     getAReview(params.review_id).then((userData) => {
       setReviewPage(userData);
     });
   }, []);
-  console.log(reviewPage);
+
   return (
     <div>
       <Nav />
@@ -24,8 +24,12 @@ const IndividualGame = () => {
       <p>Category: {reviewPage.category}</p>
       <p>Designer: {reviewPage.designer}</p>
       <ThisReview game={reviewPage} />
-      <WriteComment id={params.review_id} />
-      <CommentList id={params.review_id} />
+      <WriteComment id={params.review_id} setCommented={setCommented} />
+      <CommentList
+        id={params.review_id}
+        setCommented={setCommented}
+        commented={commented}
+      />
     </div>
   );
 };

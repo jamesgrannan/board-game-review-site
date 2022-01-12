@@ -95,6 +95,7 @@ const Review = () => {
         newCategory={newCategory}
         setNewCategory={setNewCategory}
         setCategories={setCategories}
+        setInputFields={setInputFields}
       />
     </div>
   );

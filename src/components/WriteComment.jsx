@@ -2,13 +2,16 @@ import { useContext, useState } from "react";
 import { userContext } from "../contexts/user";
 import { postComment } from "../utils";
 
-const WriteComment = ({ id }) => {
+const WriteComment = ({ id, setCommented }) => {
   const { user } = useContext(userContext);
   const [inputComment, setInputComment] = useState("");
   const handleChange = (event) => setInputComment(event.target.value);
 
-  const handleSubmit = () => {
-    return postComment(inputComment, user, id);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    return postComment(inputComment, user, id).then(() => {
+      setCommented(true);
+    });
   };
 
   return (

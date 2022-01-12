@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { userContext } from "../contexts/user";
 import { postReview } from "../utils";
 
 const ThisReview = ({ game }) => {
   const { user } = useContext(userContext);
   const [inputReview, setInputReview] = useState("");
+  const navigate = useNavigate();
   const handleChange = (event) => setInputReview(event.target.value);
 
   const handleSubmit = (event) => {
@@ -15,7 +17,9 @@ const ThisReview = ({ game }) => {
       category: game.category,
       review_body: inputReview,
     };
-    return postReview(request_body, user);
+    return postReview(request_body, user).then((res) => {
+      navigate(`/reviews/${res.review.review_id}`);
+    });
   };
 
   return (
