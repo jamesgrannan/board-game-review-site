@@ -21,7 +21,7 @@ const ThisReview = ({ game }) => {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="review_body">
-        Played this game? Write yor Review here:
+        Played this game? Write your Review here:
       </label>
       <input
         name="review_body"

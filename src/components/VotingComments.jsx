@@ -1,18 +1,13 @@
-import { useEffect, useState } from "react";
-import { patchComment, patchReview } from "../utils";
+import { useState } from "react";
+import { patchComment } from "../utils";
 
-const Voting = ({ game }) => {
-  const [currentVotes, setCurrentVotes] = useState(game.votes);
+const VotingComments = ({ comment }) => {
+  const [currentVotes, setCurrentVotes] = useState(comment.votes);
   const [err, setErr] = useState(null);
-
-  useEffect(() => {
-    setCurrentVotes(game.votes);
-  }, [game.votes]);
 
   const handleClick = (value) => {
     setErr(null);
-
-    patchReview(value, game.review_id).catch((err) => {
+    patchComment(value, comment.comment_id).catch((err) => {
       setCurrentVotes((currentVotes) => currentVotes - 1);
       setErr("Something went wrong, please try again.");
     });
@@ -40,4 +35,4 @@ const Voting = ({ game }) => {
   );
 };
 
-export default Voting;
+export default VotingComments;

@@ -72,6 +72,23 @@ const getComments = (review_id) => {
     .then(({ data }) => data.comments);
 };
 
+const patchComment = (votes, id) => {
+  return myAPI
+    .patch(`/comments/${id}`, { inc_votes: votes })
+    .then(({ data }) => data.comment)
+    .catch((err) => {
+      console.dir(err);
+    });
+};
+
+const deleteReview = (id) => {
+  return myAPI.delete(`/reviews/${id}`);
+};
+
+const deleteComment = (id) => {
+  return myAPI.delete(`/comments/${id}`);
+};
+
 export {
   signIn,
   getProfileInfo,
@@ -83,4 +100,7 @@ export {
   patchReview,
   postComment,
   getComments,
+  patchComment,
+  deleteReview,
+  deleteComment,
 };
