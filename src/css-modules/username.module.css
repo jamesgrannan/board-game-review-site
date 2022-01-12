@@ -1,0 +1,13 @@
+.usernameGrid {
+  display: grid;
+}
+
+.usernameGrid img {
+  width: 40vw;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.usernameDetails {
+  grid-column-start: 2;
+}

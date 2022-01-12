@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { userContext } from "../contexts/user";
 import { getProfileInfo } from "../utils";
 import Nav from "./Nav";
+import styles from "../css-modules/username.module.css";
 
 const Username = () => {
   const { user } = useContext(userContext);
@@ -18,9 +19,13 @@ const Username = () => {
   return (
     <div>
       <Nav user={user} />
-      <img src={avatar_url} alt={`${username}'s profile-pic`}></img>
-      <h2>{username}</h2>
-      <p>Name: {name}</p>
+      <div className={styles.usernameGrid}>
+        <img src={avatar_url} alt={`${username}'s profile-pic`}></img>
+        <div className={styles.usernameDetails}>
+          <h2>{username}</h2>
+          <p>Name: {name}</p>
+        </div>
+      </div>
     </div>
   );
 };

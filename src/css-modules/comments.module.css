@@ -1,0 +1,18 @@
+.commentGrid {
+  display: grid;
+}
+
+.commentProfilePic {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  display: flex;
+  align-items: center;
+}
+
+.commentGrid img {
+  width: 20vw;
+}
+
+.commentDetails {
+  grid-column-start: 2;
+}

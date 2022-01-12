@@ -37,47 +37,54 @@ const Review = () => {
       <Nav user={user} />
       <h2>Write your own review</h2>
       <form onSubmit={handleSubmit} className={styles.reviewForm}>
-        <label htmlFor="title">Title: </label>
-        <input
-          name="title"
-          id="title"
-          type="text"
-          required
-          onChange={handleChange}
-          value={inputFields.title}
-        />
-        <label htmlFor="designer">Designer: </label>
-        <input
-          name="designer"
-          id="designer"
-          type="text"
-          required
-          onChange={handleChange}
-          value={inputFields.designer}
-        />
-        <label htmlFor="category">Category: </label>
-        <select
-          name="category"
-          id="category"
-          required
-          onChange={handleChange}
-          value={inputFields.category}
-        >
-          <option value="">--Please choose a category--</option>
-          {categories.map((category) => {
-            return <option value={category.slug}>{category.slug}</option>;
-          })}
-        </select>
-
-        <label htmlFor="review_body">Your Review: </label>
-        <input
-          name="review_body"
-          id="review_body"
-          type="text"
-          required
-          onChange={handleChange}
-          value={inputFields.review_body}
-        />
+        <span>
+          <label htmlFor="title">Title: </label>
+          <input
+            name="title"
+            id="title"
+            type="text"
+            required
+            onChange={handleChange}
+            value={inputFields.title}
+          />
+        </span>
+        <span>
+          <label htmlFor="designer">Designer: </label>
+          <input
+            name="designer"
+            id="designer"
+            type="text"
+            required
+            onChange={handleChange}
+            value={inputFields.designer}
+          />
+        </span>
+        <span>
+          <label htmlFor="category">Category: </label>
+          <select
+            name="category"
+            id="category"
+            required
+            onChange={handleChange}
+            value={inputFields.category}
+          >
+            <option value="">--Please choose a category--</option>
+            {categories.map((category) => {
+              return <option value={category.slug}>{category.slug}</option>;
+            })}
+          </select>
+        </span>
+        <span>
+          <label htmlFor="review_body">Your Review: </label>
+          <input
+            name="review_body"
+            id="review_body"
+            type="text"
+            required
+            onChange={handleChange}
+            value={inputFields.review_body}
+          />
+        </span>
         <button type="submit">Submit Review</button>
       </form>
       <NewCategory

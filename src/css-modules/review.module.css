@@ -1,0 +1,7 @@
+.reviewForm {
+  display: inline-block;
+}
+
+.reviewForm span {
+  display: block;
+}

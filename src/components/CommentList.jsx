@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getComments } from "../utils";
 import CommentCard from "./CommentCard";
+import styles from "../css-modules/main.module.css";
 
 const CommentList = ({ id }) => {
   const [comments, setComments] = useState([]);
@@ -15,11 +16,11 @@ const CommentList = ({ id }) => {
   return (
     <div>
       <h3>Comments</h3>
-      <ul>
+      <ul className={styles.lists}>
         {comments.map((comment) => {
           return (
             <li>
-              <CommentCard comment={comment} />;
+              <CommentCard comment={comment} />
             </li>
           );
         })}
