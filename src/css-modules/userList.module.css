@@ -1,0 +1,21 @@
+.UserList {
+  width: 100px;
+  display: block;
+  margin: 20px;
+}
+
+.UserList img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.UserList p {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.UserListLi {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+}

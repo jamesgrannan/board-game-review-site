@@ -4,6 +4,7 @@ import { getCategories, postReview } from "../utils";
 import Nav from "./Nav";
 import NewCategory from "./NewCategory";
 import styles from "../css-modules/review.module.css";
+import { useNavigate } from "react-router-dom";
 
 const Review = () => {
   const { user } = useContext(userContext);
@@ -15,6 +16,7 @@ const Review = () => {
   });
   const [categories, setCategories] = useState([]);
   const [newCategory, setNewCategory] = useState({ slug: "", description: "" });
+  const navigate = useNavigate();
   const handleChange = (event) => {
     return setInputFields((currentInput) => {
       currentInput[event.target.name] = event.target.value;
@@ -23,7 +25,9 @@ const Review = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    return postReview(inputFields, user);
+    return postReview(inputFields, user).then((res) => {
+      navigate(`/reviews/${res.review.review_id}`);
+    });
   };
 
   useEffect(() => {

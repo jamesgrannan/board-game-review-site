@@ -7,8 +7,7 @@ const WriteComment = ({ id }) => {
   const [inputComment, setInputComment] = useState("");
   const handleChange = (event) => setInputComment(event.target.value);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = () => {
     return postComment(inputComment, user, id);
   };
 

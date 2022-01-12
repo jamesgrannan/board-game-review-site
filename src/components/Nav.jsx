@@ -21,6 +21,9 @@ const Nav = () => {
       <Link to="/review">
         <p>New Review</p>
       </Link>
+      <Link to="/users">
+        <p>Users</p>
+      </Link>
       <Link to={`/users/${user}`} className={styles.userInfo}>
         <img
           src={profilePic}

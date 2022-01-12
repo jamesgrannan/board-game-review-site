@@ -89,6 +89,10 @@ const deleteComment = (id) => {
   return myAPI.delete(`/comments/${id}`);
 };
 
+const getUsers = () => {
+  return myAPI.get("users").then(({ data }) => data.users);
+};
+
 export {
   signIn,
   getProfileInfo,
@@ -103,4 +107,5 @@ export {
   patchComment,
   deleteReview,
   deleteComment,
+  getUsers,
 };
