@@ -3,6 +3,7 @@ import { userContext } from "../contexts/user";
 import { getCategories, postReview } from "../utils";
 import Nav from "./Nav";
 import NewCategory from "./NewCategory";
+import styles from "../css-modules/review.module.css";
 
 const Review = () => {
   const { user } = useContext(userContext);
@@ -35,7 +36,7 @@ const Review = () => {
     <div>
       <Nav user={user} />
       <h2>Write your own review</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.reviewForm}>
         <label htmlFor="title">Title: </label>
         <input
           name="title"

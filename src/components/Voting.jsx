@@ -16,8 +16,20 @@ const Voting = ({ game }) => {
 
   return (
     <div>
-      <button onClick={handleClick(1)}>Like</button>
-      <button onClick={handleClick(-1)}>Dislike</button>
+      <button
+        onClick={() => {
+          handleClick(1);
+        }}
+      >
+        Like
+      </button>
+      <button
+        onClick={() => {
+          handleClick(-1);
+        }}
+      >
+        Dislike
+      </button>
       <p>Votes: {currentVotes}</p>
     </div>
   );

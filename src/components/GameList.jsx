@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getReviews } from "../utils";
 import GameCard from "./GameCard";
+import styles from "../css-modules/main.module.css";
 
 const GameList = () => {
   const [games, setGames] = useState([]);
@@ -22,7 +23,7 @@ const GameList = () => {
         <li>a-z</li>
       </ul>
       <h3>Games</h3>
-      <ul>
+      <ul className={styles.lists}>
         {games.map((game) => {
           return (
             <li>

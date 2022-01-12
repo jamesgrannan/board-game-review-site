@@ -1,0 +1,19 @@
+.trendingImage {
+  width: 100px;
+  border-radius: 15%;
+}
+
+.trendingLi {
+  width: 100px;
+  display: block;
+}
+
+.trendingUl {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.trendingP {
+  display: flex;
+  flex-wrap: wrap;
+}

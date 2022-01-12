@@ -16,7 +16,7 @@ const IndividualGame = () => {
       setReviewPage(userData);
     });
   }, []);
-
+  console.log(reviewPage);
   return (
     <div>
       <Nav />

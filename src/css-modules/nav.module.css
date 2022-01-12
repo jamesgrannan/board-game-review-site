@@ -1,0 +1,18 @@
+nav {
+  display: flex;
+  height: 3rem;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.navImage {
+  height: 80%;
+  display: inline;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.userInfo {
+  display: flex;
+  justify-content: space-between;
+}

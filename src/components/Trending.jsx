@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getReviews } from "../utils";
+import styles from "../css-modules/trending.module.css";
 
 const Trending = () => {
   const [trends, setTrends] = useState([]);
@@ -13,12 +14,16 @@ const Trending = () => {
   return (
     <div>
       <h3>Trending posts</h3>
-      <ul>
+      <ul className={styles.trendingUl}>
         {trends.map((game) => {
           return (
-            <li>
-              <img src={`${game.review_img_url}`} alt={`${game.title}`} />
-              <p>{game.title}</p>
+            <li className={styles.trendingLi}>
+              <img
+                src={`${game.review_img_url}`}
+                alt={`${game.title}`}
+                className={styles.trendingImage}
+              />
+              <p className={styles.trendingP}>{game.title}</p>
             </li>
           );
         })}

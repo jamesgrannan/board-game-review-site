@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { getProfileInfo } from "../utils";
 import { Link } from "react-router-dom";
 import { userContext } from "../contexts/user";
+import styles from "../css-modules/nav.module.css";
 
 const Nav = () => {
   const { user } = useContext(userContext);
@@ -20,8 +21,12 @@ const Nav = () => {
       <Link to="/review">
         <p>New Review</p>
       </Link>
-      <Link to={`/users/${user}`}>
-        <img src={profilePic} alt={`${user}'s profile-pic`}></img>
+      <Link to={`/users/${user}`} className={styles.userInfo}>
+        <img
+          src={profilePic}
+          alt={`${user}'s profile-pic`}
+          className={styles.navImage}
+        />
         <p>{user}</p>
       </Link>
     </nav>

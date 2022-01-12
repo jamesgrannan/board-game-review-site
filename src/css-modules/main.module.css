@@ -1,0 +1,32 @@
+.wrapper {
+  display: grid;
+}
+
+.reviewImage {
+  width: 30vw;
+}
+
+.reviewImageGrid {
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+.gameTitle {
+  grid-column-start: 2;
+}
+
+.profileImage {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.profile {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lists {
+  list-style-type: none;
+}

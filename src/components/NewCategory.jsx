@@ -9,11 +9,13 @@ const NewCategory = ({ newCategory, setNewCategory, setCategories }) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    return postCategory(newCategory).then((response) => {
-      return getCategories().then((data) => {
-        setCategories(data);
-      });
-    });
+    return postCategory(newCategory)
+      .then((response) => {
+        return getCategories().then((data) => {
+          setCategories(data);
+        });
+      })
+      .catch((err) => console.log(err.response.data.msg));
   };
 
   return (
