@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { userContext } from "../contexts/user";
-import { signIn } from "../utils";
+import { getProfileInfo } from "../utils";
 
 const Login = () => {
   const { setUser } = useContext(userContext);
@@ -11,18 +11,23 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    signIn(logInUser).then((result) => {
-      if (result) {
+    getProfileInfo(logInUser)
+      .then((res) => {
         setUser(logInUser);
         navigate("/games");
-      } else {
+      })
+      .catch((err) => {
         setLogInError("Username not found. Try again.");
-      }
-    });
+      });
   };
 
   const handleChange = (event) => {
     setLogInUser(event.target.value);
+  };
+
+  const handleGuest = () => {
+    setLogInUser("jessjelly");
+    navigate("/games");
   };
 
   return (
@@ -40,9 +45,7 @@ const Login = () => {
         />
         <button type="submit">Log In</button>
       </form>
-      <Link to="/games">
-        <button>Or Log in as a guest</button>
-      </Link>
+      <button onClick={handleGuest}>Or Log in as a guest</button>
       <p>{logInError}</p>
     </div>
   );

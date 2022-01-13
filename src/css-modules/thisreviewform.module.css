@@ -1,0 +1,16 @@
+.thisReviewForm {
+  display: inline-block;
+}
+
+.thisReviewForm span {
+  display: block;
+}
+
+.thisReviewForm button {
+  margin-bottom: 30px;
+}
+
+.thisReviewFormWrite {
+  width: 50vw;
+  height: 5rem;
+}

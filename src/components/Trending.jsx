@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getReviews } from "../utils";
 import styles from "../css-modules/trending.module.css";
+import { Link } from "react-router-dom";
 
 const Trending = () => {
   const [trends, setTrends] = useState([]);
@@ -17,14 +18,16 @@ const Trending = () => {
       <ul className={styles.trendingUl}>
         {trends.map((game) => {
           return (
-            <li className={styles.trendingLi}>
-              <img
-                src={`${game.review_img_url}`}
-                alt={`${game.title}`}
-                className={styles.trendingImage}
-              />
-              <p className={styles.trendingP}>{game.title}</p>
-            </li>
+            <Link to={`/reviews/${game.review_id}`}>
+              <li className={styles.trendingLi}>
+                <img
+                  src={`${game.review_img_url}`}
+                  alt={`${game.title}`}
+                  className={styles.trendingImage}
+                />
+                <p className={styles.trendingP}>{game.title}</p>
+              </li>
+            </Link>
           );
         })}
       </ul>

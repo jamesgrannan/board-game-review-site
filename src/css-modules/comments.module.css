@@ -16,3 +16,14 @@
 .commentDetails {
   grid-column-start: 2;
 }
+
+.commentsForm {
+  display: inline-block;
+}
+
+.commentsForm input {
+  width: 50vw;
+  height: 3rem;
+  display: block;
+  text-align: center;
+}

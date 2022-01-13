@@ -87,6 +87,7 @@ const Review = () => {
             required
             onChange={handleChange}
             value={inputFields.review_body}
+            className={styles.reviewFormWrite}
           />
         </span>
         <button type="submit">Submit Review</button>

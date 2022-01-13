@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { userContext } from "../contexts/user";
 import { postComment } from "../utils";
+import styles from "../css-modules/comments.module.css";
 
 const WriteComment = ({ id, setCommented }) => {
   const { user } = useContext(userContext);
@@ -11,11 +12,12 @@ const WriteComment = ({ id, setCommented }) => {
     event.preventDefault();
     return postComment(inputComment, user, id).then(() => {
       setCommented(true);
+      setInputComment("");
     });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.commentsForm}>
       <label htmlFor="comment_body">Comment:</label>
       <input
         name="comment_body"

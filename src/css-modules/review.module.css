@@ -5,3 +5,8 @@
 .reviewForm span {
   display: block;
 }
+
+.reviewFormWrite {
+  width: 50vw;
+  height: 5rem;
+}

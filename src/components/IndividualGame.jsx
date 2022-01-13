@@ -15,7 +15,7 @@ const IndividualGame = () => {
     getAReview(params.review_id).then((userData) => {
       setReviewPage(userData);
     });
-  }, []);
+  }, [params]);
 
   return (
     <div>
