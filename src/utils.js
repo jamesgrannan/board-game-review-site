@@ -31,8 +31,11 @@ const postCategory = (category) => {
 
 const getReviews = (query) => {
   let path = "reviews";
+  console.log(query);
   if (query) {
-    path += query;
+    if (query.length > 0) {
+      path += "?" + query;
+    }
   }
 
   return myAPI.get(path).then(({ data }) => data.reviews);

@@ -1,5 +1,6 @@
 import { getCategories, postCategory } from "../utils";
 import styles from "../css-modules/review.module.css";
+import { useState } from "react";
 
 const NewCategory = ({
   newCategory,
@@ -7,6 +8,7 @@ const NewCategory = ({
   setCategories,
   setInputFields,
 }) => {
+  const [error, setError] = useState("");
   const handleChange = (event) => {
     return setNewCategory((currentCategory) => {
       currentCategory[event.target.name] = event.target.value;
@@ -25,7 +27,10 @@ const NewCategory = ({
           });
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setError(err.response.data.msg);
+        setNewCategory({ slug: "", description: "" });
+      });
   };
   return (
     <div>
@@ -55,6 +60,7 @@ const NewCategory = ({
         </span>
         <button type="submit">Submit Category</button>
       </form>
+      <p>{error}</p>
     </div>
   );
 };

@@ -7,7 +7,7 @@ const Trending = () => {
   const [trends, setTrends] = useState([]);
 
   useEffect(() => {
-    getReviews("?sort_by=votes&limit=6").then((res) => {
+    getReviews("sort_by=votes&limit=6").then((res) => {
       setTrends(res);
     });
   }, []);
