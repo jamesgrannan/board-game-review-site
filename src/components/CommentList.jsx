@@ -2,20 +2,24 @@ import { useEffect, useState } from "react";
 import { getComments } from "../utils";
 import CommentCard from "./CommentCard";
 import styles from "../css-modules/main.module.css";
+import Pagination from "./Pagination";
 
 const CommentList = ({ id, setCommented, commented }) => {
   const [comments, setComments] = useState([]);
+  const [page, setPage] = useState(1);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    getComments(id).then((res) => {
-      setComments(res);
+    getComments(id, page).then(({ comments, total_count }) => {
+      setComments(comments);
       setCommented(false);
+      setCount(total_count);
     });
-  }, [commented]);
+  }, [commented, page]);
 
   return (
     <div>
-      <h3>Comments</h3>
+      {count === 1 ? <h3>1 Comment</h3> : <h3>{count} Comments</h3>}
       <ul className={styles.lists}>
         {comments.map((comment) => {
           return (
@@ -25,7 +29,7 @@ const CommentList = ({ id, setCommented, commented }) => {
           );
         })}
       </ul>
-      <p>Page 1</p>
+      <Pagination setPage={setPage} page={page} count={count} />
     </div>
   );
 };

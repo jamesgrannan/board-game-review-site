@@ -36,7 +36,6 @@ const getReviews = (query, p = 1) => {
       path += `&${query}`;
     }
   }
-  console.log(path);
   return myAPI.get(path).then(({ data }) => data);
 };
 
@@ -62,10 +61,10 @@ const postComment = (comment, currentUser, review_id) => {
     .catch((err) => console.dir(err));
 };
 
-const getComments = (review_id) => {
+const getComments = (review_id, p = 1) => {
   return myAPI
-    .get(`/reviews/${review_id}/comments`)
-    .then(({ data }) => data.comments);
+    .get(`/reviews/${review_id}/comments?p=${p}`)
+    .then(({ data }) => data);
 };
 
 const patchComment = (votes, id) => {

@@ -13,7 +13,6 @@ const GameList = () => {
 
   useEffect(() => {
     getReviews(query, page).then((res) => {
-      console.log(page);
       setGames(res.reviews);
       setCount(res.total_count);
     });
@@ -23,7 +22,7 @@ const GameList = () => {
     <div>
       <SortBy setGames={setGames} setCount={setCount} setQuery={setQuery} />
       <h3>Games</h3>
-      <p>{count} results</p>
+      {count === 1 ? <p>1 result</p> : <p>{count} results</p>}
       <ul className={styles.lists}>
         {games.map((game) => {
           return (
