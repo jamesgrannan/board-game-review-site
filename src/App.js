@@ -9,7 +9,7 @@ import UserList from "./components/UserList";
 import { useContext, useState } from "react";
 import { userContext } from "./contexts/user";
 import IndividualGame from "./components/IndividualGame";
-import PageNotFound from "./css-modules/PageNotFound";
+import PageNotFound from "./components/PageNotFound";
 
 function App() {
   const [user, setUser] = useState("jessjelly");

@@ -3,20 +3,26 @@ import { getReviews } from "../utils";
 import GameCard from "./GameCard";
 import styles from "../css-modules/main.module.css";
 import SortBy from "../components/SortBy";
+import Pagination from "./Pagination";
 
 const GameList = () => {
   const [games, setGames] = useState([]);
+  const [page, setPage] = useState(1);
+  const [count, setCount] = useState(0);
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
-    getReviews().then((res) => {
-      setGames(res);
+    getReviews(query).then((res) => {
+      setGames(res.reviews);
+      setCount(res.total_count);
     });
-  }, []);
+  }, [query]);
 
   return (
     <div>
-      <SortBy setGames={setGames} />
+      <SortBy setGames={setGames} setCount={setCount} setQuery={setQuery} />
       <h3>Games</h3>
+      <p>{count} results</p>
       <ul className={styles.lists}>
         {games.map((game) => {
           return (
@@ -26,7 +32,7 @@ const GameList = () => {
           );
         })}
       </ul>
-      <p>Page 1</p>
+      <Pagination setPage={setPage} page={page} count={count} />
     </div>
   );
 };

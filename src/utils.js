@@ -37,7 +37,7 @@ const getReviews = (query) => {
     }
   }
 
-  return myAPI.get(path).then(({ data }) => data.reviews);
+  return myAPI.get(path).then(({ data }) => data);
 };
 
 const getAReview = (id) => {

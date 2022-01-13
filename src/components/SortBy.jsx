@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getCategories, getReviews } from "../utils";
 
-const SortBy = ({ setGames }) => {
+const SortBy = ({ setGames, setCount, setQuery }) => {
   const [sorting, setSorting] = useState({ category: "", sort: "" });
   const [categories, setCategories] = useState([]);
 
@@ -36,16 +36,11 @@ const SortBy = ({ setGames }) => {
     } else if (sort.length > 0) {
       queryStr += sort;
     }
-    getReviews(queryStr)
-      .then((res) => {
-        setGames(res);
-      })
-      .catch((err) => console.dir(err));
+    setQuery(queryStr);
   };
 
   return (
     <div>
-      <h3>Sort By</h3>
       <form onSubmit={onSubmit}>
         <select
           name="category"
@@ -74,28 +69,15 @@ const SortBy = ({ setGames }) => {
           value={sorting.sort}
         >
           <option value="" disabled selected>
-            --Popular--
+            --Sort By--
           </option>
-          <option value="">Any Popularity</option>
+          <option value="">Newest</option>
           <option value="sort_by=votes&order=DESC">Most Votes</option>
           <option value="sort_by=votes">Least Votes</option>
           <option value="sort_by=comment_count&order=DESC">
             Most Comments
           </option>
           <option value="sort_by=comment_count">Least Comments</option>
-        </select>
-
-        <select
-          name="other"
-          id="other"
-          placeholder="other"
-          onChange={handleChange}
-          value={sorting.sort}
-        >
-          <option value="" disabled selected>
-            --Other--
-          </option>
-          <option value="">Newest</option>
           <option value="sort_by=title">A-Z by Title</option>
           <option value="sort_by=title&order=DESC">Z-A by Title</option>
           <option value="sort_by=owner">A-Z by Reviewer</option>
