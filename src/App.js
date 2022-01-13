@@ -9,6 +9,7 @@ import UserList from "./components/UserList";
 import { useContext, useState } from "react";
 import { userContext } from "./contexts/user";
 import IndividualGame from "./components/IndividualGame";
+import PageNotFound from "./css-modules/PageNotFound";
 
 function App() {
   const [user, setUser] = useState("jessjelly");
@@ -24,6 +25,7 @@ function App() {
             <Route path="/users" element={<UserList />} />
             <Route path="/users/:username" element={<Username />} />
             <Route path="/reviews/:review_id" element={<IndividualGame />} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>
       </BrowserRouter>
