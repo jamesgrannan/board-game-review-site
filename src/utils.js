@@ -29,14 +29,14 @@ const postCategory = (category) => {
   return myAPI.post("categories", req).then(({ data }) => data.category);
 };
 
-const getReviews = (query) => {
-  let path = "reviews";
+const getReviews = (query, p = 1) => {
+  let path = `reviews?p=${p}`;
   if (query) {
     if (query.length > 0) {
-      path += "?" + query;
+      path += `&${query}`;
     }
   }
-
+  console.log(path);
   return myAPI.get(path).then(({ data }) => data);
 };
 

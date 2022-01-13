@@ -12,11 +12,12 @@ const GameList = () => {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    getReviews(query).then((res) => {
+    getReviews(query, page).then((res) => {
+      console.log(page);
       setGames(res.reviews);
       setCount(res.total_count);
     });
-  }, [query]);
+  }, [query, page]);
 
   return (
     <div>
