@@ -8,7 +8,6 @@ const UserList = () => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     getUsers().then((res) => {
-      console.log(res);
       setUsers(res);
     });
   }, []);
@@ -20,7 +19,7 @@ const UserList = () => {
       <ul className={styles.UserListLi}>
         {users.map((a_user) => {
           return (
-            <li>
+            <li key={a_user.username}>
               <UserCard username={a_user.username} />
             </li>
           );

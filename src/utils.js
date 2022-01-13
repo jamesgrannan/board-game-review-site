@@ -31,7 +31,6 @@ const postCategory = (category) => {
 
 const getReviews = (query) => {
   let path = "reviews";
-  console.log(query);
   if (query) {
     if (query.length > 0) {
       path += "?" + query;

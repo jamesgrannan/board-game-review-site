@@ -20,7 +20,7 @@ const GameList = () => {
       <ul className={styles.lists}>
         {games.map((game) => {
           return (
-            <li>
+            <li key={game.title}>
               <GameCard game={game} />
             </li>
           );

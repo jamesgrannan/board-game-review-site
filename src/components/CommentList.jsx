@@ -19,7 +19,7 @@ const CommentList = ({ id, setCommented, commented }) => {
       <ul className={styles.lists}>
         {comments.map((comment) => {
           return (
-            <li>
+            <li key={comment.body}>
               <CommentCard comment={comment} />
             </li>
           );

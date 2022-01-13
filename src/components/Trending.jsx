@@ -18,7 +18,7 @@ const Trending = () => {
       <ul className={styles.trendingUl}>
         {trends.map((game) => {
           return (
-            <Link to={`/reviews/${game.review_id}`}>
+            <Link to={`/reviews/${game.review_id}`} key={game.title}>
               <li className={styles.trendingLi}>
                 <img
                   src={`${game.review_img_url}`}

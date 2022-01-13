@@ -74,7 +74,11 @@ const Review = () => {
           >
             <option value="">--Please choose a category--</option>
             {categories.map((category) => {
-              return <option value={category.slug}>{category.slug}</option>;
+              return (
+                <option key={category.slug} value={category.slug}>
+                  {category.slug}
+                </option>
+              );
             })}
           </select>
         </span>

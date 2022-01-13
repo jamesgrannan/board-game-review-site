@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getCategories, getReviews } from "../utils";
-import SortButton from "./SortButton";
 
 const SortBy = ({ setGames }) => {
   const [sorting, setSorting] = useState({ category: "", sort: "" });
@@ -25,10 +24,8 @@ const SortBy = ({ setGames }) => {
       return { ...currentInput };
     });
   };
-  console.log("sorting:", sorting);
 
   const onSubmit = (event) => {
-    console.log("trigger");
     event.preventDefault();
     const { category, sort } = sorting;
     let queryStr = "";
@@ -39,10 +36,8 @@ const SortBy = ({ setGames }) => {
     } else if (sort.length > 0) {
       queryStr += sort;
     }
-    console.log("queryStr", queryStr);
     getReviews(queryStr)
       .then((res) => {
-        console.log(res);
         setGames(res);
       })
       .catch((err) => console.dir(err));
@@ -106,7 +101,7 @@ const SortBy = ({ setGames }) => {
           <option value="sort_by=owner">A-Z by Reviewer</option>
           <option value="sort_by=owner&order=DESC">Z-A by Reviewer</option>
         </select>
-        <SortButton sorting={sorting} setGames={setGames} />
+        <button type="submit">Sort</button>
       </form>
     </div>
   );
