@@ -4,7 +4,7 @@ This was my front-end project that I completed at Northcoders bootcamp. It is a 
 
 The hosted version can be found here:
 
-> placeholder
+> https://meeple-cafe.netlify.app/
 
 The hosted API I created which i used can be found here:
 
