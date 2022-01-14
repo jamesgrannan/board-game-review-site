@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { userContext } from "../contexts/user";
 import { getProfileInfo } from "../utils";
 import Nav from "./Nav";
@@ -10,6 +10,7 @@ const Username = () => {
   const params = useParams();
   const [userPage, setUserPage] = useState({});
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setError(null);
@@ -18,7 +19,16 @@ const Username = () => {
         setUserPage(userData);
       })
       .catch((err) => {
-        setError(`Sorry, couldn't load ${params.username}'s user page`);
+        if (err.response) {
+          if (
+            err.response.data.msg ===
+            `No user found at username: ${params.username}`
+          ) {
+            navigate("/user_does_not_exist");
+          }
+        } else {
+          setError(`Sorry, couldn't load ${params.username}'s user page`);
+        }
       });
   }, []);
   const { name, username, avatar_url } = userPage;

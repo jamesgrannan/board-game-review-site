@@ -13,20 +13,24 @@ const IndividualGame = () => {
   const [reviewPage, setReviewPage] = useState({});
   const [commented, setCommented] = useState(false);
   const [error, setError] = useState(null);
-  console.log(error);
+  console.log("staring error: ", error);
   useEffect(() => {
     setError(null);
     getAReview(params.review_id)
       .then((userData) => {
+        console.log("inside then");
         setReviewPage(userData);
       })
       .catch((err) => {
-        if (
-          err.response.data.msg ===
-          `No review found at review_id: ${params.review_id}`
-        ) {
-          console.log("qwertyuioplkjhgfdsdfghjhgfdsdfghgfd");
-          navigate("/review_does_not_exist");
+        console.log("inside catch");
+        if (err.response) {
+          if (
+            err.response.data.msg ===
+            `No review found at review_id: ${params.review_id}`
+          ) {
+            console.log("qwertyuioplkjhgfdsdfghjhgfdsdfghgfd");
+            navigate("/review_does_not_exist");
+          }
         } else {
           console.log("qwertyuioplkjhgfdsdfghjhgfdsdfghgfd");
           setError("Sorry, we couldn't load review");
@@ -46,13 +50,13 @@ const IndividualGame = () => {
           <p>Designer: {reviewPage.designer}</p>
           <ThisReview game={reviewPage} />
           <WriteComment id={params.review_id} setCommented={setCommented} />
+          <CommentList
+            id={params.review_id}
+            setCommented={setCommented}
+            commented={commented}
+          />{" "}
         </>
       )}
-      <CommentList
-        id={params.review_id}
-        setCommented={setCommented}
-        commented={commented}
-      />
     </div>
   );
 };
