@@ -13,26 +13,22 @@ const IndividualGame = () => {
   const [reviewPage, setReviewPage] = useState({});
   const [commented, setCommented] = useState(false);
   const [error, setError] = useState(null);
-  console.log("staring error: ", error);
+
   useEffect(() => {
     setError(null);
     getAReview(params.review_id)
       .then((userData) => {
-        console.log("inside then");
         setReviewPage(userData);
       })
       .catch((err) => {
-        console.log("inside catch");
         if (err.response) {
           if (
             err.response.data.msg ===
             `No review found at review_id: ${params.review_id}`
           ) {
-            console.log("qwertyuioplkjhgfdsdfghjhgfdsdfghgfd");
             navigate("/review_does_not_exist");
           }
         } else {
-          console.log("qwertyuioplkjhgfdsdfghjhgfdsdfghgfd");
           setError("Sorry, we couldn't load review");
         }
       });
