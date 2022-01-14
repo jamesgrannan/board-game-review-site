@@ -1,0 +1,32 @@
+.home {
+  /* background-image: url("../images/meeple-header.jpg");
+  background-repeat: no-repeat; */
+  height: 100vh;
+  width: 100vw;
+  /* mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 50%,
+    transparent 100%
+  ); */
+  background-color: #734444;
+  color: #eeedbe;
+}
+
+.home h1 {
+  padding-top: 10px;
+  margin-top: 0px;
+}
+
+.homeBox {
+  background-color: #c37857;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 15px;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.home button {
+  background-color: #99b27f;
+  padding: 5px;
+}

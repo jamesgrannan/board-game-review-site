@@ -80,12 +80,12 @@ const SortBy = ({ setGames, setCount, setQuery }) => {
             --Sort By--
           </option>
           <option value="">Newest</option>
-          <option value="sort_by=votes&order=DESC">Most Votes</option>
-          <option value="sort_by=votes">Least Votes</option>
-          <option value="sort_by=comment_count&order=DESC">
-            Most Comments
+          <option value="sort_by=votes">Most Votes</option>
+          <option value="sort_by=votes&order=ASC">Least Votes</option>
+          <option value="sort_by=comment_count">Most Comments</option>
+          <option value="sort_by=comment_count&order=ASC">
+            Least Comments
           </option>
-          <option value="sort_by=comment_count">Least Comments</option>
           <option value="sort_by=title">A-Z by Title</option>
           <option value="sort_by=title&order=DESC">Z-A by Title</option>
           <option value="sort_by=owner">A-Z by Reviewer</option>
