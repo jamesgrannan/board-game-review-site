@@ -16,20 +16,32 @@ const NewCategory = ({
     });
   };
   const handleSubmit = (event) => {
+    setError("");
     event.preventDefault();
     return postCategory(newCategory)
       .then(() => {
-        return getCategories().then((data) => {
-          setCategories(data);
-          return setInputFields((currentInput) => {
-            currentInput.category = newCategory.slug;
-            return { ...currentInput };
+        return getCategories()
+          .then((data) => {
+            setCategories(data);
+            return setInputFields((currentInput) => {
+              currentInput.category = newCategory.slug;
+              return { ...currentInput };
+            });
+          })
+          .catch((err) => {
+            setError(
+              "Sorry, category list can't update at the moment. Please try again later."
+            );
           });
-        });
       })
       .catch((err) => {
-        setError(err.response.data.msg);
-        setNewCategory({ slug: "", description: "" });
+        setError(
+          "Sorry, we couldn't add your category at this time. Please try again later."
+        );
+        if (err.response) {
+          setError(err.response.data.msg);
+          setNewCategory({ slug: "", description: "" });
+        }
       });
   };
   return (

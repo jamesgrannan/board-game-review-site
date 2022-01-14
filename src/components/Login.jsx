@@ -18,9 +18,14 @@ const Login = () => {
         navigate("/games");
       })
       .catch((err) => {
-        console.dir(err);
-        if ((err.response.data.msg = `No user found at username: ${logInUser}`))
+        setLogInError(
+          "Sorry, we couldn't fetch your log-in data at the moment. Try again later."
+        );
+        if (
+          err.response.data.msg === `No user found at username: ${logInUser}`
+        ) {
           setLogInError("Username not found. Try again.");
+        }
       });
   };
 

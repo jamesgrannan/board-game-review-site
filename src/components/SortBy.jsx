@@ -4,11 +4,19 @@ import { getCategories, getReviews } from "../utils";
 const SortBy = ({ setGames, setCount, setQuery }) => {
   const [sorting, setSorting] = useState({ category: "", sort: "" });
   const [categories, setCategories] = useState([]);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    getCategories().then((data) => {
-      setCategories(data);
-    });
+    setError("");
+    getCategories()
+      .then((data) => {
+        setCategories(data);
+      })
+      .catch((err) => {
+        setError(
+          "Sorry, category list won't load at the moment. Please try again later."
+        );
+      });
   }, []);
 
   const handleCategoryChange = (event) => {
@@ -83,6 +91,7 @@ const SortBy = ({ setGames, setCount, setQuery }) => {
           <option value="sort_by=owner">A-Z by Reviewer</option>
           <option value="sort_by=owner&order=DESC">Z-A by Reviewer</option>
         </select>
+        <p>{error}</p>
         <button type="submit">Sort</button>
       </form>
     </div>

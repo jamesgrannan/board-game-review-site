@@ -16,6 +16,8 @@ const Review = () => {
   });
   const [categories, setCategories] = useState([]);
   const [newCategory, setNewCategory] = useState({ slug: "", description: "" });
+  const [error, setError] = useState("");
+  const [catError, setCatError] = useState("");
   const navigate = useNavigate();
   const handleChange = (event) => {
     return setInputFields((currentInput) => {
@@ -24,16 +26,30 @@ const Review = () => {
     });
   };
   const handleSubmit = (event) => {
+    setError("");
     event.preventDefault();
-    return postReview(inputFields, user).then((res) => {
-      navigate(`/reviews/${res.review.review_id}`);
-    });
+    return postReview(inputFields, user)
+      .then((res) => {
+        navigate(`/reviews/${res.review.review_id}`);
+      })
+      .catch((err) => {
+        setError(
+          "Sorry, something went wrong and we couldn't post your review. Try again."
+        );
+      });
   };
 
   useEffect(() => {
-    getCategories().then((data) => {
-      setCategories(data);
-    });
+    setCatError("");
+    getCategories()
+      .then((data) => {
+        setCategories(data);
+      })
+      .catch((err) => {
+        setCatError(
+          "Sorry, category list won't load at the moment. Please try again later."
+        );
+      });
   }, []);
 
   return (
@@ -81,6 +97,7 @@ const Review = () => {
               );
             })}
           </select>
+          <p>{catError}</p>
         </span>
         <span>
           <label htmlFor="review_body">Your Review: </label>
@@ -95,6 +112,7 @@ const Review = () => {
           />
         </span>
         <button type="submit">Submit Review</button>
+        <p>{error}</p>
       </form>
       <NewCategory
         newCategory={newCategory}
