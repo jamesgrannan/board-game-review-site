@@ -15,8 +15,7 @@ const postReview = (review, currentUser) => {
     .post(`/reviews`, { ...review, owner: currentUser })
     .then(({ data }) => {
       return data;
-    })
-    .catch((err) => console.dir(err));
+    });
 };
 
 const getCategories = () => {
@@ -57,8 +56,7 @@ const postComment = (comment, currentUser, review_id) => {
     })
     .then(({ data }) => {
       return data;
-    })
-    .catch((err) => console.dir(err));
+    });
 };
 
 const getComments = (review_id, p = 1) => {
@@ -70,10 +68,7 @@ const getComments = (review_id, p = 1) => {
 const patchComment = (votes, id) => {
   return myAPI
     .patch(`/comments/${id}`, { inc_votes: votes })
-    .then(({ data }) => data.comment)
-    .catch((err) => {
-      console.dir(err);
-    });
+    .then(({ data }) => data.comment);
 };
 
 const deleteReview = (id) => {

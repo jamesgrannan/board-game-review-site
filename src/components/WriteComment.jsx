@@ -6,29 +6,44 @@ import styles from "../css-modules/comments.module.css";
 const WriteComment = ({ id, setCommented }) => {
   const { user } = useContext(userContext);
   const [inputComment, setInputComment] = useState("");
+  const [error, setError] = useState(null);
   const handleChange = (event) => setInputComment(event.target.value);
 
   const handleSubmit = (event) => {
+    setError("");
     event.preventDefault();
-    return postComment(inputComment, user, id).then(() => {
-      setCommented(true);
-      setInputComment("");
-    });
+    postComment(inputComment, user, id)
+      .then((res) => {
+        console.log("in then block");
+        if (res) {
+          setCommented(true);
+          setInputComment("");
+        }
+      })
+      .catch((err) => {
+        console.log("ERROR");
+        setError(
+          "Sorry, something went wrong and we couldn't post your comment. Try again."
+        );
+      });
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.commentsForm}>
-      <label htmlFor="comment_body">Comment:</label>
-      <input
-        name="comment_body"
-        id="comment_body"
-        type="text"
-        required
-        onChange={handleChange}
-        value={inputComment}
-      />
-      <button type="submit">Post Comment</button>
-    </form>
+    <>
+      <form onSubmit={handleSubmit} className={styles.commentsForm}>
+        <label htmlFor="comment_body">Comment:</label>
+        <input
+          name="comment_body"
+          id="comment_body"
+          type="text"
+          required
+          onChange={handleChange}
+          value={inputComment}
+        />
+        <button type="submit">Post Comment</button>
+      </form>
+      <p>{error}</p>
+    </>
   );
 };
 

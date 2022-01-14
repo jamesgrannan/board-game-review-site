@@ -10,6 +10,7 @@ const ThisReview = ({ game }) => {
     title: "",
     review_body: "",
   });
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
   const handleChange = (event) => {
     return setInputReview((currentInput) => {
@@ -19,6 +20,7 @@ const ThisReview = ({ game }) => {
   };
 
   const handleSubmit = (event) => {
+    setError("");
     event.preventDefault();
     const request_body = {
       title: inputReview.title,
@@ -26,9 +28,15 @@ const ThisReview = ({ game }) => {
       category: game.category,
       review_body: inputReview.review_body,
     };
-    return postReview(request_body, user).then((res) => {
-      navigate(`/reviews/${res.review.review_id}`);
-    });
+    return postReview(request_body, user)
+      .then((res) => {
+        navigate(`/reviews/${res.review.review_id}`);
+      })
+      .catch((err) => {
+        setError(
+          "Sorry, something went wrong and we couldn't post your review. Try again."
+        );
+      });
   };
 
   return (
@@ -60,6 +68,7 @@ const ThisReview = ({ game }) => {
         />
       </span>
       <button type="submit">Submit Review</button>
+      <p>{error}</p>
     </form>
   );
 };
