@@ -1,32 +1,38 @@
 .home {
-  /* background-image: url("../images/meeple-header.jpg");
-  background-repeat: no-repeat; */
   height: 100vh;
   width: 100vw;
-  /* mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 50%,
-    transparent 100%
-  ); */
-  background-color: #734444;
-  color: #eeedbe;
+  font-family: helvetica;
+  background-color: #ffcdab;
+  color: #332922;
 }
 
 .home h1 {
-  padding-top: 10px;
+  padding-top: 25px;
+  padding-bottom: 5px;
   margin-top: 0px;
 }
 
 .homeBox {
-  background-color: #c37857;
+  background-color: #fff5ee;
   margin-left: 10%;
   margin-right: 10%;
-  margin-bottom: 15px;
-  padding: 5px;
-  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 5px 15px 5px 15px;
+  border-radius: 8px;
+}
+
+.homeBox h2 {
+  word-spacing: 20px;
 }
 
 .home button {
-  background-color: #99b27f;
-  padding: 5px;
+  background-color: #ffa45c;
+  padding: 10px 20px 10px 20px;
+  border-radius: 20px;
+  border: none;
+  text-transform: uppercase;
+}
+
+.home h2 {
+  margin: 16px;
 }

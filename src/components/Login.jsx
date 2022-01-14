@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { userContext } from "../contexts/user";
 import { getProfileInfo } from "../utils";
+import styles from "../css-modules/login.module.css";
 
 const Login = () => {
   const { setUser } = useContext(userContext);
@@ -39,7 +40,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className={styles.login}>
       <h2>Meeple Café</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Enter your username</label>
