@@ -11,13 +11,16 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setLogInError("");
     getProfileInfo(logInUser)
       .then((res) => {
         setUser(logInUser);
         navigate("/games");
       })
       .catch((err) => {
-        setLogInError("Username not found. Try again.");
+        console.dir(err);
+        if ((err.response.data.msg = `No user found at username: ${logInUser}`))
+          setLogInError("Username not found. Try again.");
       });
   };
 

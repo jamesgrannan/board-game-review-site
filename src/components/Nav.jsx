@@ -6,11 +6,16 @@ import styles from "../css-modules/nav.module.css";
 
 const Nav = () => {
   const { user } = useContext(userContext);
+  const [error, setError] = useState(null);
   const [profilePic, setProfilePic] = useState("");
   useEffect(() => {
-    getProfileInfo(user).then(({ avatar_url }) => {
-      setProfilePic(avatar_url);
-    });
+    getProfileInfo(user)
+      .then(({ avatar_url }) => {
+        setProfilePic(avatar_url);
+      })
+      .catch((err) => {
+        setError("Image couldn't load");
+      });
   }, [user]);
   return (
     <nav>
@@ -25,11 +30,15 @@ const Nav = () => {
         <p>Users</p>
       </Link>
       <Link to={`/users/${user}`} className={styles.userInfo}>
-        <img
-          src={profilePic}
-          alt={`${user}'s profile-pic`}
-          className={styles.navImage}
-        />
+        {error ? (
+          <p>{error}</p>
+        ) : (
+          <img
+            src={profilePic}
+            alt={`${user}'s profile-pic`}
+            className={styles.navImage}
+          />
+        )}
         <p>{user}</p>
       </Link>
     </nav>

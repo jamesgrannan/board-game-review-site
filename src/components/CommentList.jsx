@@ -19,7 +19,7 @@ const CommentList = ({ id, setCommented, commented }) => {
         setCount(total_count);
       })
       .catch((err) => {
-        setError("Sorry, couldn't load results");
+        setError("Sorry, couldn't load comments");
       });
   }, [commented, page]);
 

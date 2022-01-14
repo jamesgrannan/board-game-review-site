@@ -10,15 +10,23 @@ const GameList = () => {
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(0);
   const [query, setQuery] = useState("");
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getReviews(query, page).then((res) => {
-      setGames(res.reviews);
-      setCount(res.total_count);
-    });
+    setError(null);
+    getReviews(query, page)
+      .then((res) => {
+        setGames(res.reviews);
+        setCount(res.total_count);
+      })
+      .catch((err) => {
+        setError("Sorry, couldn't load results");
+      });
   }, [query, page]);
 
-  return (
+  return error ? (
+    <p>{error}</p>
+  ) : (
     <div>
       <SortBy setGames={setGames} setCount={setCount} setQuery={setQuery} />
       <h3>Games</h3>

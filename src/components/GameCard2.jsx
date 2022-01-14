@@ -9,10 +9,16 @@ import { userContext } from "../contexts/user";
 const GameCard2 = ({ game, setDeleted }) => {
   const { user } = useContext(userContext);
   const [profilePic, setProfilePic] = useState("");
+  const [error, setError] = useState(null);
   useEffect(() => {
-    getProfileInfo(game.owner).then(({ avatar_url }) => {
-      setProfilePic(avatar_url);
-    });
+    setError(null);
+    getProfileInfo(game.owner)
+      .then(({ avatar_url }) => {
+        setProfilePic(avatar_url);
+      })
+      .catch((err) => {
+        setError("Image couldn't load");
+      });
   }, [game]);
 
   return (
@@ -22,11 +28,15 @@ const GameCard2 = ({ game, setDeleted }) => {
           to={`/reviews/${game.review_id}`}
           className={styles.reviewImageGrid}
         >
-          <img
-            src={game.review_img_url}
-            alt={game.title}
-            className={styles.reviewImage}
-          />
+          {error ? (
+            <p>{error}</p>
+          ) : (
+            <img
+              src={game.review_img_url}
+              alt={game.title}
+              className={styles.reviewImage}
+            />
+          )}
         </Link>
         <Link to={`/reviews/${game.review_id}`}>
           <h3 className={styles.gameTitle}>{game.title}</h3>

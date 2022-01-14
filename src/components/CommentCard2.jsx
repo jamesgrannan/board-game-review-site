@@ -30,7 +30,7 @@ const CommentCard2 = ({ comment, setDeletedComment }) => {
         {error ? (
           <p>{error}</p>
         ) : (
-          <img src={profilePic} alt={`${comment.author}'s profile-pic`}></img>
+          <img src={profilePic} alt={`${comment.author}'s profile-pic`} />
         )}
       </Link>
       <div className={styles.commentDetails}>
