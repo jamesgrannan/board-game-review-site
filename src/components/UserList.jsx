@@ -6,25 +6,37 @@ import styles from "../css-modules/userList.module.css";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
+  const [error, setError] = useState(null);
   useEffect(() => {
-    getUsers().then((res) => {
-      setUsers(res);
-    });
+    setError(null);
+    getUsers()
+      .then((res) => {
+        setUsers(res);
+      })
+      .catch((err) => {
+        setError("Sorry, couldn't load users");
+      });
   }, []);
 
   return (
     <div>
       <Nav />
-      <h2>Our Users:</h2>
-      <ul className={styles.UserListLi}>
-        {users.map((a_user) => {
-          return (
-            <li key={a_user.username}>
-              <UserCard username={a_user.username} />
-            </li>
-          );
-        })}
-      </ul>
+      {error ? (
+        <p>{error}</p>
+      ) : (
+        <>
+          <h2>Our Users:</h2>
+          <ul className={styles.UserListLi}>
+            {users.map((a_user) => {
+              return (
+                <li key={a_user.username}>
+                  <UserCard username={a_user.username} />
+                </li>
+              );
+            })}
+          </ul>
+        </>
+      )}
     </div>
   );
 };

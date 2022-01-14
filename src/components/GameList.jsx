@@ -20,7 +20,7 @@ const GameList = () => {
         setCount(res.total_count);
       })
       .catch((err) => {
-        setError("Sorry, couldn't load results");
+        setError("Sorry, couldn't load page results");
       });
   }, [query, page]);
 
