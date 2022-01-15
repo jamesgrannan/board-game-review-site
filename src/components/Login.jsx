@@ -25,6 +25,7 @@ const Login = () => {
         if (
           err.response.data.msg === `No user found at username: ${logInUser}`
         ) {
+          setLogInUser("");
           setLogInError("Username not found. Try again.");
         }
       });
@@ -41,9 +42,10 @@ const Login = () => {
 
   return (
     <div className={styles.login}>
-      <h2>Meeple Café</h2>
+      <h1>Meeple Café</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Enter your username</label>
+
         <input
           name="username"
           id="username"
@@ -51,10 +53,17 @@ const Login = () => {
           required
           onChange={handleChange}
           value={logInUser}
+          className="fa"
+          placeholder="&#xF007; Username"
         />
-        <button type="submit">Log In</button>
+
+        <button type="submit" className={styles.loginButton}>
+          Log In
+        </button>
       </form>
-      <button onClick={handleGuest}>Or Log in as a guest</button>
+      <button onClick={handleGuest} className={styles.guest}>
+        Or Log in as a guest
+      </button>
       <p>{logInError}</p>
     </div>
   );

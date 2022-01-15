@@ -7,9 +7,13 @@
 }
 
 .home h1 {
-  padding-top: 25px;
-  padding-bottom: 5px;
+  padding-top: 22px;
+  padding-bottom: 22px;
   margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: "Patrick Hand", cursive;
+  letter-spacing: 0.15em;
+  font-weight: 500;
 }
 
 .homeBox {
@@ -17,17 +21,21 @@
   margin-left: 10%;
   margin-right: 10%;
   margin-bottom: 20px;
-  padding: 5px 15px 5px 15px;
+  padding: 1px 15px 5px 15px;
   border-radius: 8px;
+  box-shadow: 0px 5px 20px 1px #a38875;
 }
 
 .homeBox h2 {
   word-spacing: 20px;
+  font-family: "Patrick Hand", cursive;
+  letter-spacing: 0.15em;
+  font-weight: 500;
 }
 
 .home button {
   background-color: #ffa45c;
-  padding: 10px 20px 10px 20px;
+  padding: 15px 25px 15px 25px;
   border-radius: 20px;
   border: none;
   text-transform: uppercase;
