@@ -3,6 +3,22 @@ nav {
   height: 3rem;
   text-align: center;
   justify-content: space-between;
+  background-color: #ffa45c;
+}
+
+.logo {
+  font-family: "Patrick Hand", cursive;
+  letter-spacing: 0.15em;
+  font-weight: 500;
+}
+
+.hamburger {
+  vertical-align: middle;
+}
+
+.hamburger button {
+  background-color: #ffa45c;
+  border: none;
 }
 
 .navImage {
@@ -10,6 +26,7 @@ nav {
   display: inline;
   overflow: hidden;
   border-radius: 50%;
+  border: 1px solid #332922;
 }
 
 .userInfo {

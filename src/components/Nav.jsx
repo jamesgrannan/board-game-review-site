@@ -19,7 +19,7 @@ const Nav = () => {
   }, [user]);
   return (
     <nav>
-      <p>Meeple Café</p>
+      <p className={styles.logo}>Meeple Café</p>
       <Link to="/games">
         <p>Games</p>
       </Link>
@@ -29,6 +29,7 @@ const Nav = () => {
       <Link to="/users">
         <p>Users</p>
       </Link>
+
       <Link to={`/users/${user}`} className={styles.userInfo}>
         {error ? (
           <p>{error}</p>

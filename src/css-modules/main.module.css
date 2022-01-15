@@ -1,5 +1,13 @@
+.gamePage {
+  font-family: helvetica;
+  background-color: #ffcdab;
+  color: #332922;
+}
+
 .wrapper {
   display: grid;
+  height: 100vh;
+  width: 100vw;
 }
 
 .reviewImage {

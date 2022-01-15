@@ -55,71 +55,78 @@ const Review = () => {
   return (
     <div>
       <Nav user={user} />
-      <h2>Write your own review</h2>
-      <form onSubmit={handleSubmit} className={styles.reviewForm}>
-        <span>
-          <label htmlFor="title">Title: </label>
-          <input
-            name="title"
-            id="title"
-            type="text"
-            required
-            onChange={handleChange}
-            value={inputFields.title}
+      <div className={styles.writeReview}>
+        <h1>Write your own review</h1>
+        <div className={styles.writeReviewBox}>
+          <form onSubmit={handleSubmit} className={styles.reviewForm}>
+            <span>
+              <label htmlFor="title">Title: </label>
+              <input
+                name="title"
+                id="title"
+                type="text"
+                required
+                onChange={handleChange}
+                value={inputFields.title}
+                placeholder="Review title"
+              />
+            </span>
+            <span>
+              <label htmlFor="designer">Designer: </label>
+              <input
+                name="designer"
+                id="designer"
+                type="text"
+                required
+                onChange={handleChange}
+                value={inputFields.designer}
+                placeholder="Designer"
+              />
+            </span>
+            <span>
+              <label htmlFor="category">Category: </label>
+              <select
+                name="category"
+                id="category"
+                required
+                onChange={handleChange}
+                value={inputFields.category}
+              >
+                <option value="">--Please choose a category--</option>
+                {categories.map((category) => {
+                  return (
+                    <option key={category.slug} value={category.slug}>
+                      {category.slug}
+                    </option>
+                  );
+                })}
+              </select>
+              <p>{catError}</p>
+            </span>
+            <span>
+              <label htmlFor="review_body">Your Review: </label>
+              <input
+                name="review_body"
+                id="review_body"
+                type="textarea"
+                required
+                onChange={handleChange}
+                value={inputFields.review_body}
+                className={styles.reviewFormWrite}
+                placeholder="Write your review here..."
+              />
+            </span>
+            <button type="submit">Submit Review</button>
+            <p>{error}</p>
+          </form>
+          <NewCategory
+            newCategory={newCategory}
+            setNewCategory={setNewCategory}
+            setCategories={setCategories}
+            setInputFields={setInputFields}
           />
-        </span>
-        <span>
-          <label htmlFor="designer">Designer: </label>
-          <input
-            name="designer"
-            id="designer"
-            type="text"
-            required
-            onChange={handleChange}
-            value={inputFields.designer}
-          />
-        </span>
-        <span>
-          <label htmlFor="category">Category: </label>
-          <select
-            name="category"
-            id="category"
-            required
-            onChange={handleChange}
-            value={inputFields.category}
-          >
-            <option value="">--Please choose a category--</option>
-            {categories.map((category) => {
-              return (
-                <option key={category.slug} value={category.slug}>
-                  {category.slug}
-                </option>
-              );
-            })}
-          </select>
-          <p>{catError}</p>
-        </span>
-        <span>
-          <label htmlFor="review_body">Your Review: </label>
-          <input
-            name="review_body"
-            id="review_body"
-            type="text"
-            required
-            onChange={handleChange}
-            value={inputFields.review_body}
-            className={styles.reviewFormWrite}
-          />
-        </span>
-        <button type="submit">Submit Review</button>
-        <p>{error}</p>
-      </form>
-      <NewCategory
-        newCategory={newCategory}
-        setNewCategory={setNewCategory}
-        setCategories={setCategories}
-        setInputFields={setInputFields}
-      />
+        </div>
+      </div>
     </div>
   );
 };

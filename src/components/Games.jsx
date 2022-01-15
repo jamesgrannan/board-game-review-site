@@ -3,11 +3,12 @@ import { userContext } from "../contexts/user";
 import Nav from "./Nav";
 import Trending from "./Trending";
 import GameList from "./GameList";
+import styles from "../css-modules/main.module.css";
 
 const Games = () => {
   const { user } = useContext(userContext);
   return (
-    <div>
+    <div className={styles.gamePage}>
       <Nav />
       <Trending />
       <GameList />

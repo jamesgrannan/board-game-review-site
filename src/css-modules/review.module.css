@@ -1,3 +1,47 @@
+.writeReview {
+  height: 100vh;
+  width: 100vw;
+  font-family: helvetica;
+  background-color: #ffcdab;
+  color: #332922;
+  vertical-align: middle;
+}
+
+.writeReview h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: "Patrick Hand", cursive;
+  letter-spacing: 0.07em;
+  font-weight: 500;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+
+.writeReviewBox {
+  background-color: #fff5ee;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 20px;
+  padding: 20px 0px 30px 0px;
+  border-radius: 8px;
+  box-shadow: 0px 5px 20px 1px #a38875;
+}
+
+.writeReviewBox input {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 60vw;
+}
+.writeReviewBox select {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 60vw;
+}
+
+.writeReviewBox label {
+  display: none;
+}
+
 .reviewForm {
   display: inline-block;
 }
@@ -7,6 +51,11 @@
 }
 
 .reviewFormWrite {
-  width: 50vw;
-  height: 5rem;
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 1px solid #332922;
+  border-radius: 4px;
+  background-color: #ffcdab;
 }

@@ -57,6 +57,7 @@ const NewCategory = ({
             required
             onChange={handleChange}
             value={newCategory.slug}
+            placeholder="Category name"
           />
         </span>
         <span>
@@ -68,6 +69,7 @@ const NewCategory = ({
             required
             onChange={handleChange}
             value={newCategory.description}
+            placeholder="Description"
           />
         </span>
         <button type="submit">Submit Category</button>
