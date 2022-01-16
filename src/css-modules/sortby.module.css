@@ -1,0 +1,19 @@
+.sortby form {
+  margin-top: 35px;
+}
+
+.sortby select {
+  padding: 15px;
+  width: 33vw;
+  background-color: #ffa45c;
+  font-size: 15px;
+  border: none;
+}
+
+.sortby button {
+  padding: 16px;
+  width: 15vw;
+  background-color: #a6d149;
+  font-size: 15px;
+  border: none;
+}

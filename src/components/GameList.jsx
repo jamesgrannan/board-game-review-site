@@ -27,7 +27,7 @@ const GameList = () => {
   return error ? (
     <p>{error}</p>
   ) : (
-    <div>
+    <div className={styles.gamesList}>
       <SortBy setGames={setGames} setCount={setCount} setQuery={setQuery} />
       <h3>Games</h3>
       {count === 1 ? <p>1 result</p> : <p>{count} results</p>}

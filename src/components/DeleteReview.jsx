@@ -20,7 +20,9 @@ const DeleteReview = ({ id, setDeleted }) => {
 
   return (
     <>
-      <button onClick={handleOnClick}>Delete</button>
+      <button onClick={handleOnClick}>
+        <i class="fas fa-trash-alt"></i>
+      </button>
       <p>{error}</p>
     </>
   );

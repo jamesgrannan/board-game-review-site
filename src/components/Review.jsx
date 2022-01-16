@@ -105,20 +105,20 @@ const Review = () => {
             </span>
             <span>
               <label htmlFor="review_body">Your Review: </label>
-              <input
+              <textarea
                 name="review_body"
                 id="review_body"
-                type="textarea"
                 required
                 onChange={handleChange}
                 value={inputFields.review_body}
                 className={styles.reviewFormWrite}
                 placeholder="Write your review here..."
-              />
+              ></textarea>
             </span>
             <button type="submit">Submit Review</button>
             <p>{error}</p>
           </form>
+          <hr />
           <NewCategory
             newCategory={newCategory}
             setNewCategory={setNewCategory}

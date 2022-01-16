@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { patchComment, patchReview } from "../utils";
 
-const Voting = ({ game }) => {
-  const [currentVotes, setCurrentVotes] = useState(game.votes);
+const Voting = ({ game, setCurrentVotes, currentVotes }) => {
   const [err, setErr] = useState("");
 
   useEffect(() => {
@@ -26,17 +25,16 @@ const Voting = ({ game }) => {
           handleClick(1);
         }}
       >
-        Like
+        <i class="fas fa-heart"></i>
       </button>
       <button
         onClick={() => {
           handleClick(-1);
         }}
       >
-        Dislike
+        <i class="fas fa-heart-broken"></i>
       </button>
       <p>{err}</p>
-      <p>Votes: {currentVotes}</p>
     </div>
   );
 };

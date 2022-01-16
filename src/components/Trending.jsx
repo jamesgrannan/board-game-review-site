@@ -23,7 +23,7 @@ const Trending = () => {
         <p></p>
       ) : (
         <>
-          <h3>Trending posts</h3>
+          <h2 className={styles.trendingTitle}>Trending posts</h2>
           <ul className={styles.trendingUl}>
             {trends.map((game) => {
               return (

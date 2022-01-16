@@ -1,10 +1,10 @@
 .writeReview {
-  height: 100vh;
   width: 100vw;
   font-family: helvetica;
   background-color: #ffcdab;
   color: #332922;
   vertical-align: middle;
+  padding-bottom: 25px;
 }
 
 .writeReview h1 {
@@ -22,20 +22,28 @@
   margin-left: 10%;
   margin-right: 10%;
   margin-bottom: 20px;
-  padding: 20px 0px 30px 0px;
+  padding: 20px 0px 10px 0px;
   border-radius: 8px;
   box-shadow: 0px 5px 20px 1px #a38875;
+  overflow: auto;
 }
 
 .writeReviewBox input {
   margin-bottom: 10px;
   margin-top: 10px;
   width: 60vw;
+  padding: 10px;
+  border-radius: 2px;
+  border: 1px solid #332922;
+  background-color: #ffe1cc;
 }
 .writeReviewBox select {
   margin-bottom: 10px;
   margin-top: 10px;
-  width: 60vw;
+  width: 66vw;
+  padding: 10px;
+  border-radius: 2px;
+  border: 1px solid #332922;
 }
 
 .writeReviewBox label {
@@ -48,6 +56,7 @@
 
 .reviewForm span {
   display: block;
+  padding: 0px;
 }
 
 .reviewFormWrite {
@@ -57,5 +66,33 @@
   box-sizing: border-box;
   border: 1px solid #332922;
   border-radius: 4px;
-  background-color: #ffcdab;
+  background-color: #ffe1cc;
+}
+
+.writeReviewBox hr {
+  width: 60vw;
+  height: 1px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.writeReviewBox h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: "Patrick Hand", cursive;
+  letter-spacing: 0.07em;
+  font-weight: 500;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.writeReview button {
+  padding: 15px 25px 15px 25px;
+  border-radius: 20px;
+  border: none;
+  text-transform: uppercase;
+  margin-top: 20px;
+  background-color: #a6d149;
 }
