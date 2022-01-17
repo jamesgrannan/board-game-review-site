@@ -21,9 +21,26 @@
   display: inline-block;
 }
 
-.commentsForm input {
-  width: 50vw;
-  height: 3rem;
-  display: block;
-  text-align: center;
+.commentsForm label {
+  display: none;
+}
+
+.commentsForm textarea {
+  width: 80vw;
+  height: 50px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 1px solid #332922;
+  border-radius: 4px;
+  background-color: #fff5ee;
+}
+
+.commentsForm button {
+  padding: 15px 25px 15px 25px;
+  border-radius: 20px;
+  border: none;
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  background-color: #a6d149;
 }

@@ -1,0 +1,25 @@
+.individual {
+  font-family: helvetica;
+  background-color: #ffcdab;
+  color: #332922;
+}
+
+.individualCard {
+  background-color: #fff5ee;
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 20px;
+  padding: 20px 0px 10px 0px;
+  border-radius: 8px;
+  box-shadow: 0px 5px 20px 1px #a38875;
+}
+
+.individualCard h3 {
+  font-family: "Patrick Hand", cursive;
+  letter-spacing: 0.07em;
+  font-weight: 500;
+  font-size: 30px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}

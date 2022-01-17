@@ -6,12 +6,13 @@ import GameCard from "./GameCard";
 import ThisReview from "./ThisReview";
 import WriteComment from "./WriteComment";
 import CommentList from "./CommentList";
+import styles from "../css-modules/individual.module.css";
 
 const IndividualGame = () => {
   const navigate = useNavigate();
   const params = useParams();
   const [reviewPage, setReviewPage] = useState({});
-  const [commented, setCommented] = useState(false);
+
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -35,22 +36,19 @@ const IndividualGame = () => {
   }, [params]);
 
   return (
-    <div>
+    <div className={styles.individual}>
       <Nav />
       {error ? (
         <p>{error}</p>
       ) : (
         <>
-          <GameCard game={reviewPage} />
-          <p>Category: {reviewPage.category}</p>
-          <p>Designer: {reviewPage.designer}</p>
+          <div className={styles.individualCard}>
+            <GameCard game={reviewPage} />
+            <p>Category: {reviewPage.category}</p>
+            <p>Designer: {reviewPage.designer}</p>
+          </div>
           <ThisReview game={reviewPage} />
-          <WriteComment id={params.review_id} setCommented={setCommented} />
-          <CommentList
-            id={params.review_id}
-            setCommented={setCommented}
-            commented={commented}
-          />{" "}
+          <CommentList id={params.review_id} />{" "}
         </>
       )}
     </div>

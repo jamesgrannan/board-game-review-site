@@ -32,14 +32,15 @@ const WriteComment = ({ id, setCommented }) => {
     <>
       <form onSubmit={handleSubmit} className={styles.commentsForm}>
         <label htmlFor="comment_body">Comment:</label>
-        <input
+        <textarea
           name="comment_body"
           id="comment_body"
           type="text"
           required
           onChange={handleChange}
           value={inputComment}
-        />
+          placeholder="Write your comment here..."
+        ></textarea>
         <button type="submit">Post Comment</button>
       </form>
       <p>{error}</p>

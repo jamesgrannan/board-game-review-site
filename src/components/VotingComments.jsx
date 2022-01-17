@@ -21,17 +21,19 @@ const VotingComments = ({ comment }) => {
           handleClick(1);
         }}
       >
-        Like
+        <i class="fas fa-heart"></i>
       </button>
       <button
         onClick={() => {
           handleClick(-1);
         }}
       >
-        Dislike
+        <i class="fas fa-heart-broken"></i>
       </button>
       <p>{err}</p>
-      <p>Votes: {currentVotes}</p>
+      <p>
+        <i class="fas fa-comments"></i> {currentVotes}
+      </p>
     </div>
   );
 };

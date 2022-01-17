@@ -41,34 +41,39 @@ const ThisReview = ({ game }) => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.thisReviewForm}>
-      <h3>Played this game? Write your Review here:</h3>
-      <span>
-        <label htmlFor="title">Your own review title:</label>
-        <input
-          name="title"
-          id="title"
-          type="text"
-          required
-          onChange={handleChange}
-          value={inputReview.title}
-        />
-      </span>
-      <span>
-        <label htmlFor="review_body">
-          Played this game? Write your Review here:
-        </label>
-        <input
-          name="review_body"
-          id="review_body"
-          type="text"
-          required
-          onChange={handleChange}
-          value={inputReview.review_body}
-          className={styles.thisReviewFormWrite}
-        />
-      </span>
-      <button type="submit">Submit Review</button>
+      <h3>Played this game before?</h3>
+      <h3> Write your own Review:</h3>
+      <div className={styles.writeReviewBox}>
+        <span>
+          <label htmlFor="title">Your own review title:</label>
+          <input
+            name="title"
+            id="title"
+            type="text"
+            required
+            onChange={handleChange}
+            value={inputReview.title}
+            placeholder="Your own review title"
+          />
+        </span>
+        <span>
+          <label htmlFor="review_body">
+            Played this game? Write your Review here:
+          </label>
+          <textarea
+            name="review_body"
+            id="review_body"
+            required
+            onChange={handleChange}
+            value={inputReview.review_body}
+            className={styles.thisReviewFormWrite}
+            placeholder="Write your Review here..."
+          ></textarea>
+        </span>
+        <button type="submit">Submit Review</button>
+      </div>
       <p>{error}</p>
+      <hr />
     </form>
   );
 };

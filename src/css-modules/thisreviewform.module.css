@@ -1,16 +1,64 @@
 .thisReviewForm {
   display: inline-block;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.thisReviewForm h3 {
+  font-family: "Patrick Hand", cursive;
+  letter-spacing: 0.07em;
+  font-weight: 500;
+  font-size: 25px;
+  margin: 0px;
 }
 
 .thisReviewForm span {
   display: block;
+  margin-top: 20px;
 }
 
-.thisReviewForm button {
-  margin-bottom: 30px;
+.thisReviewForm input {
+  width: 60vw;
+}
+
+.thisReviewForm label {
+  display: none;
 }
 
 .thisReviewFormWrite {
-  width: 50vw;
-  height: 5rem;
+  width: 60vw;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 1px solid #332922;
+  border-radius: 4px;
+  background-color: #ffe1cc;
+}
+
+.thisReviewForm button {
+  padding: 15px 25px 15px 25px;
+  border-radius: 20px;
+  border: none;
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  background-color: #a6d149;
+}
+
+.writeReviewBox {
+  background-color: #fff5ee;
+  width: 80vw;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px 0px 10px 0px;
+  border-radius: 8px;
+  box-shadow: 0px 5px 20px 1px #a38875;
+}
+
+.thisReviewForm hr {
+  width: 80vw;
+  height: 1px;
+  margin-top: 35px;
+  margin-bottom: 20px;
+  color: #332922;
 }
