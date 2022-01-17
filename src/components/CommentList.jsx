@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getComments } from "../utils";
 import CommentCard from "./CommentCard";
-import styles from "../css-modules/main.module.css";
+import styles from "../css-modules/comments.module.css";
 import Pagination from "./Pagination";
 import WriteComment from "./WriteComment";
 
@@ -32,10 +32,10 @@ const CommentList = ({ id }) => {
       <div>
         {count === 1 ? <h3>1 Comment</h3> : <h3>{count} Comments</h3>}
         <WriteComment id={id} setCommented={setCommented} />
-        <ul className={styles.lists}>
+        <ul className={styles.commentList}>
           {comments.map((comment) => {
             return (
-              <li key={comment.body}>
+              <li key={comment.body} className={styles.commentItem}>
                 <CommentCard comment={comment} />
               </li>
             );

@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { patchComment } from "../utils";
 
-const VotingComments = ({ comment }) => {
-  const [currentVotes, setCurrentVotes] = useState(comment.votes);
+const VotingComments = ({ comment, currentVotes, setCurrentVotes }) => {
   const [err, setErr] = useState("");
 
   const handleClick = (value) => {
@@ -31,9 +30,6 @@ const VotingComments = ({ comment }) => {
         <i class="fas fa-heart-broken"></i>
       </button>
       <p>{err}</p>
-      <p>
-        <i class="fas fa-comments"></i> {currentVotes}
-      </p>
     </div>
   );
 };
