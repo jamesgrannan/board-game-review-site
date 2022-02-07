@@ -2,14 +2,17 @@ nav {
   display: flex;
   height: 3rem;
   text-align: center;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: #ffa45c;
+  align-items: center;
 }
 
 .logo {
   font-family: "Patrick Hand", cursive;
   letter-spacing: 0.15em;
   font-weight: 500;
+  font-size: larger;
+  align-items: center;
 }
 
 .hamburger {
@@ -22,14 +25,21 @@ nav {
 }
 
 .navImage {
-  height: 80%;
+  height: 2.5rem;
   display: inline;
   overflow: hidden;
   border-radius: 50%;
-  border: 1px solid #332922;
+  padding-top: 0.4rem;
+  padding-right: 15px;
 }
 
 .userInfo {
   display: flex;
   justify-content: space-between;
+}
+
+.userInfo p {
+  font-family: "Patrick Hand", cursive;
+  letter-spacing: 0.15em;
+  font-weight: 500;
 }

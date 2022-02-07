@@ -1,13 +1,25 @@
 .usernameGrid {
   display: grid;
+  padding: 20px;
 }
 
 .usernameGrid img {
   width: 40vw;
+  height: 40vw;
   grid-row-start: 1;
   grid-row-end: 3;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .usernameDetails {
   grid-column-start: 2;
+}
+
+.usernamePage {
+  height: 100vh;
+  width: 100vw;
+  font-family: helvetica;
+  background-color: #ffcdab;
+  color: #332922;
 }

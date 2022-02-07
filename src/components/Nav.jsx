@@ -3,6 +3,7 @@ import { getProfileInfo } from "../utils";
 import { Link } from "react-router-dom";
 import { userContext } from "../contexts/user";
 import styles from "../css-modules/nav.module.css";
+import Hamburger from "./Hamburger";
 
 const Nav = () => {
   const { user } = useContext(userContext);
@@ -20,16 +21,7 @@ const Nav = () => {
   return (
     <nav>
       <p className={styles.logo}>Meeple Café</p>
-      <Link to="/games">
-        <p>Games</p>
-      </Link>
-      <Link to="/review">
-        <p>New Review</p>
-      </Link>
-      <Link to="/users">
-        <p>Users</p>
-      </Link>
-
+      <Hamburger />
       <Link to={`/users/${user}`} className={styles.userInfo}>
         {error ? (
           <p>{error}</p>

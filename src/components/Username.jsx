@@ -33,7 +33,7 @@ const Username = () => {
   }, []);
   const { name, username, avatar_url } = userPage;
   return (
-    <div>
+    <div className={styles.usernamePage}>
       <Nav user={user} />
       {error ? (
         <p>{error}</p>

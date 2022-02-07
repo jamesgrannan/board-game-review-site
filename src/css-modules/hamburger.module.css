@@ -1,0 +1,29 @@
+.dropdown {
+  position: relative;
+}
+
+.dropdown button {
+  background-color: #ffa45c;
+  border: none;
+  font-size: x-large;
+}
+
+.dropdown ul {
+  list-style-type: none;
+  position: absolute;
+  background-color: #ffa45c;
+  width: fit-content;
+  left: 0;
+  top: 100%;
+  z-index: 1;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 8px;
+}
+
+.dropdown li {
+  font-family: "Patrick Hand", cursive;
+  letter-spacing: 0.15em;
+  font-weight: 500;
+  font-size: larger;
+}

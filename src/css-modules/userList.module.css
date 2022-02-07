@@ -1,21 +1,35 @@
 .UserList {
   width: 100px;
   display: block;
-  margin: 20px;
+  margin: 5px;
 }
 
 .UserList img {
-  width: 100px;
+  object-fit: cover;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
 }
 
 .UserList p {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .UserListLi {
   display: flex;
   flex-wrap: wrap;
   list-style-type: none;
+  justify-content: space-around;
+  padding-left: 0px;
+}
+
+.userPage {
+  height: 100vh;
+  width: 100vw;
+  font-family: helvetica;
+  background-color: #ffcdab;
+  color: #332922;
+  padding-right: 15px;
 }

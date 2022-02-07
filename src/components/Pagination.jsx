@@ -1,3 +1,5 @@
+import styles from "../css-modules/pagination.module.css";
+
 const Pagination = ({ setPage, page, count }) => {
   const handleClick = (value) => {
     setPage((currentPage) => currentPage + value);
@@ -6,10 +8,14 @@ const Pagination = ({ setPage, page, count }) => {
   return (
     <div>
       {page > 1 ? (
-        <button onClick={() => handleClick(-1)}>Previous</button>
+        <button className={styles.pagBtn} onClick={() => handleClick(-1)}>
+          Previous
+        </button>
       ) : null}
       {10 * page >= count ? null : (
-        <button onClick={() => handleClick(1)}>Next</button>
+        <button className={styles.pagBtn} onClick={() => handleClick(1)}>
+          Next
+        </button>
       )}
     </div>
   );

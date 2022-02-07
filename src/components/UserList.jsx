@@ -19,7 +19,7 @@ const UserList = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.userPage}>
       <Nav />
       {error ? (
         <p>{error}</p>
