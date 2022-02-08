@@ -10,7 +10,7 @@ The hosted version can be found here:
 
 ## Setup
 
-- Clone the repository with this link: https://github.com/jamesgrannan/Board-Game-Review-Site/
+- Clone the repository with this link: https://github.com/jamesgrannan/board-game-review-site.git
 - Make sure you change directory into this repository.
 - Running this in your terminal should install all the necessary packages:
 
@@ -23,6 +23,7 @@ The hosted version can be found here:
 ```json
   npm run start
 ```
+---
 
 The hosted API I created which I've used with this project can be found here:
 
@@ -30,4 +31,4 @@ The hosted API I created which I've used with this project can be found here:
 
 The API's own GitHub page:
 
-> https://github.com/jamesgrannan/nc_board_games_api
+> https://github.com/jamesgrannan/nc-board-game-api
