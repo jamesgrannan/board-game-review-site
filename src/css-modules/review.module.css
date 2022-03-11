@@ -96,3 +96,15 @@
   margin-top: 20px;
   background-color: #a6d149;
 }
+
+@media screen and (min-width: 600px) {
+  .oneRow {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .oneRow input,
+  .oneRow select {
+    width: 27vw;
+  }
+}

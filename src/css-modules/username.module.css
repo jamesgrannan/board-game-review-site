@@ -1,19 +1,16 @@
 .usernameGrid {
-  display: grid;
+  display: flex;
   padding: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .usernameGrid img {
-  width: 40vw;
-  height: 40vw;
-  grid-row-start: 1;
-  grid-row-end: 3;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
-}
-
-.usernameDetails {
-  grid-column-start: 2;
+  padding-right: 20px;
 }
 
 .usernamePage {

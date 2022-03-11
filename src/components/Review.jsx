@@ -71,38 +71,40 @@ const Review = () => {
                 placeholder="Review title"
               />
             </span>
-            <span>
-              <label htmlFor="designer">Designer: </label>
-              <input
-                name="designer"
-                id="designer"
-                type="text"
-                required
-                onChange={handleChange}
-                value={inputFields.designer}
-                placeholder="Designer"
-              />
-            </span>
-            <span>
-              <label htmlFor="category">Category: </label>
-              <select
-                name="category"
-                id="category"
-                required
-                onChange={handleChange}
-                value={inputFields.category}
-              >
-                <option value="">--Please choose a category--</option>
-                {categories.map((category) => {
-                  return (
-                    <option key={category.slug} value={category.slug}>
-                      {category.slug}
-                    </option>
-                  );
-                })}
-              </select>
-              <p>{catError}</p>
-            </span>
+            <div className={styles.oneRow}>
+              <span>
+                <label htmlFor="designer">Designer: </label>
+                <input
+                  name="designer"
+                  id="designer"
+                  type="text"
+                  required
+                  onChange={handleChange}
+                  value={inputFields.designer}
+                  placeholder="Designer"
+                />
+              </span>
+              <span>
+                <label htmlFor="category">Category: </label>
+                <select
+                  name="category"
+                  id="category"
+                  required
+                  onChange={handleChange}
+                  value={inputFields.category}
+                >
+                  <option value="">--Please choose a category--</option>
+                  {categories.map((category) => {
+                    return (
+                      <option key={category.slug} value={category.slug}>
+                        {category.slug}
+                      </option>
+                    );
+                  })}
+                </select>
+                <p>{catError}</p>
+              </span>
+            </div>
             <span>
               <label htmlFor="review_body">Your Review: </label>
               <textarea
