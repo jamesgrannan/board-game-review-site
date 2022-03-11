@@ -43,24 +43,26 @@ const Login = () => {
   return (
     <div className={styles.login}>
       <h1>Meeple Café</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Enter your username</label>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="username">Enter your username</label>
 
-        <input
-          name="username"
-          id="username"
-          type="text"
-          required
-          onChange={handleChange}
-          value={logInUser}
-          className="fa"
-          placeholder="&#xF007; Username"
-        />
+          <input
+            name="username"
+            id="username"
+            type="text"
+            required
+            onChange={handleChange}
+            value={logInUser}
+            className="fa"
+            placeholder="&#xF007; Username"
+          />
 
-        <button type="submit" className={styles.loginButton}>
-          Log In
-        </button>
-      </form>
+          <button type="submit" className={styles.loginButton}>
+            Log In
+          </button>
+        </form>
+      </div>
       <button onClick={handleGuest} className={styles.guest}>
         Or Log in as a guest
       </button>
